@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById('search-input').addEventListener('input', function (e) {
 		var searchString = e.target.value;
 		var filteredData = fullTransactionData.filter(function (transaction) {
-			var foundInName = transaction.name.indexOf(searchString) > -1;
+			var foundInName = transaction.name.toLowerCase().indexOf(searchString.toLowerCase()) > -1; //added toLowerCase() to change search string to lowercase AND added toLowerCase() to the transaction name
 			var foundInFor = transaction.for.indexOf(searchString) > -1;
 			var foundInDate = transaction.date.indexOf(searchString) > -1;
 			var foundInAmount = transaction.amount.indexOf(searchString) > -1;
